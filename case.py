@@ -1,3 +1,6 @@
+# Anufrieva A. 70%
+# Zhuravleva A. 45%
+
 from math import ceil
 
 information = {'АИ-80': [1, 3], 'АИ-92': [3, 4, 2, 2], 'АИ-95': [3, 4], 'АИ-98':[3, 4]}
