@@ -1,5 +1,5 @@
 # Anufrieva A. 70%
-# Zhuravleva A. 45%
+# Zhuravleva A. 50%
 
 from math import ceil
 
@@ -48,14 +48,18 @@ for item in base:
         time_base2 = str(hours_base2) + ':' + str(minut_base2)
         base_2.append([time_base2, item[1], item[2]])
 
-base_result = sorted(base_2 + base) #наш итоговый словарь
+#наш итоговый словарь
+base_result = sorted(base_2 + base)
 
 people_leave = 0
+
+# Количество литров бензина
 l_80 = 0
 l_92 = 0
 l_95 = 0
 l_98 = 0
 
+# Количество машин возле каждого автомата
 a1 = []
 a2 = []
 a3 = []
@@ -64,6 +68,7 @@ for car in base_result:
     AI = car[2]
     need_time_2 = str(ceil(int(car[1]) / 10))
 
+# Работа с машинами которые заправляют АИ-80
     if AI == 'АИ-80':
         if len(a1) < 3:
             if car[1:] not in a1:
@@ -77,7 +82,7 @@ for car in base_result:
             print('В ' + car[0] + ' клиент: ' + car[0] + ' ' + AI + ' ' + car[1] + ' ' + need_time_2 + 'не смог заправить автомобиль и покинул АЗС')
             people_leave += 1
 
-
+# Работа с машинами которые заправляют АИ-92
     if AI == 'АИ-92':
         if car[1:] not in a2 and car[1:] not in a3:
             if len(a2) < 2:
@@ -106,6 +111,7 @@ for car in base_result:
                     1] + ' ' + need_time_2 + ' заправил свой автомобиль и покинул АЗС.')
 
 
+# Работа с машинами которые заправляют АИ-95 или АИ-98
     if AI == 'АИ-95' or AI == 'АИ-98':
 
         if len(a3) < 4:
